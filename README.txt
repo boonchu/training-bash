@@ -13,6 +13,16 @@ https://docs.gitlab.com/ee/development/shell_scripting_guide/
 Shell Linkedin
 https://www.linkedin.com/showcase/skills-shell-scripting/posts/?feedView=all
 
+Shellcheck
+https://dev.to/anadea/pre-commit-config-shellcheck-for-syntax-and-semantic-checks-automation-460e
+
+```
+pre-commit run --all-files
+```
+
+ShellCheck2
+https://github.com/gruntwork-io/pre-commit/blob/master/.pre-commit-hooks.yaml#L49-L53
+
 # Set options
 # You can also use set -e to exit the script immediately if a command fails, 
 # or set -u to treat unset variables as errors.

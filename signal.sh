@@ -4,8 +4,12 @@
 set -eE
 
 __term__() {
-  echo "[BASH] Caught SIGINT signal!"
-  kill -INT "$child" 2>/dev/null
+  if [[ $_child_pid ]]; then
+    echo "[BASH] Caught SIGINT signal!"
+    kill -INT "$child_pid" 2>/dev/null
+  else
+    _killed="yes" 
+  fi
 }
 
 __error_handling__() {
@@ -14,11 +18,14 @@ __error_handling__() {
   pr -tn $0 | tail -n+$((LINENO - 3)) | head -n7
 }
 
-trap '__term__' SIGINT
-# https://stackoverflow.com/questions/35800082/how-to-trap-err-when-using-set-e-in-bash
-trap '__error_handling__ $? $LINENO' ERR
-
 echo "[BASH] Start daemon with trapping INTERRUPT...";
+unset _child_pid
+unset _killed
+trap '__term__' SIGINT
+
+# https://stackoverflow.com/questions/35800082/how-to-trap-err-when-using-set-e-in-bash
+# trap '__error_handling__ $? $LINENO' ERR
+
 python3 signals.py &
 jobs -n
 # https://unix.stackexchange.com/questions/146756/forward-sigterm-to-child-in-bash
@@ -28,7 +35,13 @@ jobs -n
 #
 # Calling wait will then wait for the job with the specified PID (the server)
 # to finish, or for any signals to be fired.
-child=$!
-wait "$child"
+_child_pid=$!
+if [[ $_killed ]]; then
+  kill -INT "$_child_pid" 2>/dev/null
+fi
+# https://veithen.io/2014/11/16/sigterm-propagation.html
+wait "$_child_pid" 2>/dev/null
+trap - SIGINT
+wait "$_child_pid" 2>/dev/null
 
 jobs -n
