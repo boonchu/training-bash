@@ -1,0 +1,3 @@
+https://github.com/nelhage/reptyr
+https://ostechnix.com/reptyr-move-running-process-new-terminal/
+https://unix.stackexchange.com/questions/703967/share-or-access-existing-shell-session/704058#704058

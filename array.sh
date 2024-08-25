@@ -19,6 +19,7 @@ for key in ${!fruits[@]}; do
     echo "$key: ${fruits[$key]}"
 done
 
+# '<<<' ~ here string `sed 's/a/b/g' <<< "aaa"`
 while read -r key value; do 
     echo "$key: $value"
 done <<< "${!colors[@]} ${colors[@]}"

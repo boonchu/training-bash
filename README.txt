@@ -27,3 +27,8 @@ https://www.youtube.com/watch?v=c9fOkyrNvlQ
 0
 > bash -o pipefail -c 'false | true'; echo $?
 1
+
+notes:
+https://unix.stackexchange.com/users/22565/st%c3%a9phane-chazelas
+https://unix.stackexchange.com/users/4667/glenn-jackman
+https://unix.stackexchange.com/users/7733/stuart-p-bentley
