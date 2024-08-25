@@ -32,3 +32,4 @@ notes:
 https://unix.stackexchange.com/users/22565/st%c3%a9phane-chazelas
 https://unix.stackexchange.com/users/4667/glenn-jackman
 https://unix.stackexchange.com/users/7733/stuart-p-bentley
+https://stackoverflow.com/users/465183/gilles-qu%c3%a9not
