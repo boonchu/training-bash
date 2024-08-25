@@ -1,0 +1,5 @@
+repos:
+  - repo: "https://github.com/Anadea/pre-commit-config-shellcheck"
+    rev: "0.3.4"
+    hooks:
+      - id: "pre-commit-config-shellcheck"

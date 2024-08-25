@@ -1,0 +1,1 @@
+pre-commit-config-shellcheck==0.3.4

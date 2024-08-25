@@ -3,7 +3,7 @@ import time
 import signal
 
 
-def interrupt_handler(signum, frame):
+def interruptHandler(signum, frame):
     print(f"[PYTHON] Handling signal {signum} ({signal.Signals(signum).name}).")
     time.sleep(1)
     sys.exit(0)
@@ -16,5 +16,5 @@ def main():
 
     
 if __name__ == "__main__":
-    signal.signal(signal.SIGINT, interrupt_handler)
+    signal.signal(signal.SIGINT, interruptHandler)
     main()
